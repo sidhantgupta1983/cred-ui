@@ -19,13 +19,14 @@ const ScreenContent = ({content, index, setCurrentImage}) => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(setItemVisible, options);
-    if (ref.current) {
-      observer.observe(ref.current);
+    const currentReference = ref.current;
+    if (currentReference) {
+      observer.observe(currentReference);
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (currentReference) {
+        observer.unobserve(currentReference);
       }
     };
   }, []);
