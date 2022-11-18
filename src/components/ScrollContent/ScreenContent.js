@@ -1,23 +1,24 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
-const ScreenContent = ({content, index, setCurrentImage}) => {
+const ScreenContent = ({ content, index, setCurrentImage }) => {
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
-  const setItemVisible = (e) => {
-    if (e[0]?.isIntersecting) {
-      setIsVisible(!isVisible);
-      setCurrentImage(index);
-    }
-  };
-
-  const options = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.6,
-  };
-
   useEffect(() => {
+
+    const setItemVisible = (e) => {
+      if (e[0]?.isIntersecting) {
+        setIsVisible(!isVisible);
+        setCurrentImage(index);
+      }
+    };
+
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.6,
+    };
+
     const observer = new IntersectionObserver(setItemVisible, options);
     const currentReference = ref.current;
     if (currentReference) {
@@ -37,7 +38,7 @@ const ScreenContent = ({content, index, setCurrentImage}) => {
       <div className="right-scroll-content-wrapper only-mobile">
         <div className="mobile-contents">
           <div className="mobile-horizontal-scroll-content">
-          <img
+            <img
               src={content.imageLink}
               className="mobile-screen-image slide-in-right"
               key={content.imageLink}
