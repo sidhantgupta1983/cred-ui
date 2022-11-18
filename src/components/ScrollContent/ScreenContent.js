@@ -41,6 +41,7 @@ const ScreenContent = ({content, index, setCurrentImage}) => {
               src={content.imageLink}
               className="mobile-screen-image slide-in-right"
               key={content.imageLink}
+              alt="cred-images"
             />
           </div>
         </div>

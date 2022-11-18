@@ -43,6 +43,7 @@ const ScrollContent = () => {
               src={contentToShow[currentImage].imageLink}
               className="mobile-screen-image slide-in-right"
               key={contentToShow[currentImage].imageLink}
+              alt="cred-images"
             />
           </div>
         </div>
